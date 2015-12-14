@@ -47,8 +47,8 @@ public class Simulation {
   }
 
   private static void printResult(Result r, int simulations) {
-    System.out.println("Level    Men            Women");
-    System.out.println("-----    -----          -----");
+    System.out.println("Level  Men            Women");
+    System.out.println("-----  -------------  -------------");
     for (int level = 0; level < LEVELS; level++) {
       System.out.format("%5d  %5.1f (%4.1f%%)  %5.1f (%4.1f%%)%n",
           level, ((double) r.getCountAtLevel(level, Gender.MALE)) / simulations,
@@ -131,7 +131,7 @@ public class Simulation {
         if (PROMOTION_MODEL == PromotionModel.TOURNAMENT) {
           // The tournament model factors previous ratings into current ratings. This
           // leads to more gender disparity at the top organizational level.
-          employee.setRating(score + (employee.getRating() / 2));
+          employee.setRating(score + (employee.getRating()));
         } else {
           // The contest model ignores previous scores, leading to more balance
           // between men and women at the top level.
