@@ -131,11 +131,11 @@ public class Simulation {
         if (PROMOTION_MODEL == PromotionModel.TOURNAMENT) {
           // The tournament model factors previous ratings into current ratings. This
           // leads to more gender disparity at the top organizational level.
-          employee.setRating(score + (employee.getRating()));
+          employee.addScore(score);
         } else {
           // The contest model ignores previous scores, leading to more balance
           // between men and women at the top level.
-          employee.setRating(score);
+          employee.resetScore(score);
         }
       }
 
